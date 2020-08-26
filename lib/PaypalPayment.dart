@@ -91,7 +91,7 @@ class PaypalPaymentState extends State<PaypalPayment> {
     String addressZipCode = '15306';
     String addressCountry = 'Perú';
     String addressState = 'Lima';
-    String addressPhoneNumber = '+51917078034';
+    String addressPhoneNumber = '+51954269967';
 
     Map<String, dynamic> temp = {
       "intent": "sale",
