@@ -10,6 +10,7 @@ class MakePayment extends StatefulWidget {
 class _MakePaymentState extends State<MakePayment> {
   TextStyle style = TextStyle(fontFamily: 'Open Sans', fontSize: 15.0);
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+  String _message = "";
 
   @override
   Widget build(BuildContext context) {
@@ -26,9 +27,9 @@ class _MakePaymentState extends State<MakePayment> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   Text(
-                    'Paypal Payment Example',
+                    'Prueba de pagar con Paypal',
                     style: TextStyle(
-                        fontSize: 16.0, color: Colors.red[900], fontWeight: FontWeight.bold, fontFamily: 'Open Sans'),
+                        fontSize: 16.0, color: Colors.blue[400], fontWeight: FontWeight.bold, fontFamily: 'Open Sans'),
                   ),
                 ],
               ),
@@ -36,6 +37,7 @@ class _MakePaymentState extends State<MakePayment> {
           ),
           body: Container(
               width: MediaQuery.of(context).size.width,
+              color: Colors.blue[400],
               child: Container(
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
@@ -50,7 +52,9 @@ class _MakePaymentState extends State<MakePayment> {
                             builder: (BuildContext context) => PaypalPayment(
                               onFinish: (number) async {
                                 // payment done
-                                print('order id: ' + number);
+                                print('Order id: ' + number);
+                                _message = 'Order id: ' + number;
+                                setState(() {});
                               },
                             ),
                           ),
@@ -61,6 +65,10 @@ class _MakePaymentState extends State<MakePayment> {
                         textAlign: TextAlign.center,
                       ),
                     ),
+                    Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Text(_message),
+                    )
                   ],
                 ),
               )),
